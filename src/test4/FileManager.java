@@ -19,19 +19,6 @@ public class FileManager {
 
 	public FileManager() {
 		// TODO Auto-generated constructor stub
-//		try {
-//			FileWriter fileWriter = new FileWriter(file);
-//			for (int i = 0; i < 8; i++) {
-//				for (int j = 0; j < 8; j++) {
-//					fileWriter.write(a[i][j] + "\t");
-//				}
-//				fileWriter.write("\r\n");
-//			}
-//			fileWriter.close();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
 	}
 
 	public void showFAT() {
