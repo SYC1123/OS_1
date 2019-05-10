@@ -1,6 +1,7 @@
 package test4;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -21,7 +22,28 @@ public class FileManager {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void showFAT() {
+	public void showFAT() {	
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line;
+			int row=0;
+			while((line=reader.readLine())!=null) {
+				String[] temp=line.split("\t");
+				for(int i=0;i<temp.length;i++) {
+					a[row][i]=Integer.parseInt(temp[i]);
+				}
+				row++;
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		for (int i = 0; i < 8; i++) {
 			System.out.print("********");
 			for (int j = 0; j < 8; j++) {
@@ -125,8 +147,8 @@ public class FileManager {
 			if (f.isDirectory()) {
 				// listFiles()方法是返回某个目录下所有文件和目录的绝对路径，返回的是File数组
 				File[] fileArray = f.listFiles();
-				//System.out.println(fileArray.length);
-				if(fileArray.length==0) {
+				// System.out.println(fileArray.length);
+				if (fileArray.length == 0) {
 					System.out.println(f);
 				}
 				if (fileArray != null) {
@@ -174,6 +196,7 @@ public class FileManager {
 							fileWriter.write("\r\n");
 							fileWriter.write(df.format(new Date()));
 							fileWriter.close();
+							init(new File("D:\\OS\\fat.txt"));
 							return 1;
 						}
 					}
@@ -210,7 +233,7 @@ public class FileManager {
 						a[i][j] = 0;
 					}
 
-					init(new File("D:\\OS\\fat.txt"));
+					init(file);
 
 				} else {
 					System.out.println("文件删除失败！");

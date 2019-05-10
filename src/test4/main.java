@@ -34,12 +34,14 @@ public class main {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+				
 			} else {
 				System.out.println("该目录已存在！");
 			}
 			fileManager.init(file);
 			menu();
 		} else {
+			//System.out.println(1);
 			menu();
 		}
 	}
